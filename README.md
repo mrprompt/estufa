@@ -12,4 +12,4 @@ temperatura ambiente e interna e controle de iluminação.
 - 1x lâmpada
 - 1x bocal de lâmpada
 
-#### Licença MIT
+#### Licença GPL
