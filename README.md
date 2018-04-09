@@ -23,11 +23,15 @@ Projeto de estufa com com acompanhamento de umidade de solo, temperatura ambient
 ## Funcionamento
 
 A estufa constantemente analisa a umidade do solo com os sensores e mostra o percentual no display.
+
 O relé liga a luz (ou outro dispositivo) no horário configurado no código: 4h liga, 20h desliga.
 
 ## Configurando a data e hora
 
 Para configurar a data, é necessário editar o arquivo **clock.ino** e ajustar os parâmetros necssários.
-Após salvar o arquivo, descomente a chamada à funçào dentro da função **setup**. Finalmente, após subir o código a data estará ajustada, comente novamente a chamada para que a hora não seja novamente reajustada.
+
+Após salvar o arquivo, descomente a chamada à funçào dentro da função **setup**. 
+
+Finalmente, após subir o código a data estará ajustada, comente novamente a chamada para que a hora não seja novamente reajustada.
 
 #### Licença GPL
