@@ -78,25 +78,26 @@ void datahora()
 
   ultimaAmostraCalendario = millis();
 
-  delay(3000);
+  delay(INTERVALO_DISPLAY);
 }
-
 
 //Seta a data e a hora do DS1307
 void SelecionaDataeHora() 
 {
-  byte segundos = 00; //Valores de 0 a 59
-  byte minutos = 48; //Valores de 0 a 59
-  byte horas = 0; //Valores de 0 a 23
-  byte diadasemana = 1; //Valores de 0 a 6 - 0=Domingo, 1 = Segunda, etc.
-  byte diadomes = 9; //Valores de 1 a 31
+  byte segundos = 0; //Valores de 0 a 59
+  byte minutos = 46; //Valores de 0 a 59
+  byte horas = 12; //Valores de 0 a 23
+  byte diadasemana = 4; //Valores de 0 a 6 - 0=Domingo, 1 = Segunda, etc.
+  byte diadomes = 12; //Valores de 1 a 31
   byte mes = 4; //Valores de 1 a 12
   byte ano = 18; //Valores de 0 a 99
+  
   Wire.beginTransmission(DS1307_ADDRESS);
-  Wire.write(zero); //Stop no CI para que o mesmo possa receber os dados
 
-  //As linhas abaixo escrevem no CI os valores de
-  //data e hora que foram colocados nas variaveis acima
+  // Stop no CI para que o mesmo possa receber os dados
+  Wire.write(zero); 
+
+  //As linhas abaixo escrevem no CI os valores de data e hora
   Wire.write(ConverteParaBCD(segundos));
   Wire.write(ConverteParaBCD(minutos));
   Wire.write(ConverteParaBCD(horas));
@@ -108,15 +109,19 @@ void SelecionaDataeHora()
   Wire.endTransmission();
 }
 
+/**
+ * Converte o número de decimal para BCD
+ */
 byte ConverteParaBCD(byte val)
 {
-  //Converte o número de decimal para BCD
   return ( (val / 10 * 16) + (val % 10) );
 }
 
+/**
+ * Converte de BCD para decimal
+ */
 byte ConverteparaDecimal(byte val)
 {
-  //Converte de BCD para decimal
   return ( (val / 16 * 10) + (val % 16) );
 }
 

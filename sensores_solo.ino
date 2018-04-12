@@ -26,6 +26,6 @@ void solo()
 
   ultimaLeituraSolo = millis();
 
-  delay(3000);
+  delay(INTERVALO_DISPLAY);
 }
 
